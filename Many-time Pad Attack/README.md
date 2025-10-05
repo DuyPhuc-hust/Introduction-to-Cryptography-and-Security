@@ -31,5 +31,6 @@
 Run `solve.py`
 
 ## Notes
-The recovered key is used to decrypt only the target ciphertext accurately. If you want to decrypt other ciphertexts, do more corrections
+Give the idea about guessing and scoring to Grok to help me solve this problem
+The recovered key is used to decrypt only the target ciphertext accurately. If you want to decrypt other ciphertexts, do more corrections.
 Scoring assumes English text, needing manual corrections. XOR reveals plaintext relationships due to key reuse.
