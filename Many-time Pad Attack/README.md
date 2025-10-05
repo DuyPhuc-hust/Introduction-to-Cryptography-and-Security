@@ -28,7 +28,8 @@
   ![After Correction](images/after_corrections.png)
 
 ## Usage
-Run `python many_time_pad.py`
+Run `solve.py`
 
 ## Notes
+The recovered key is used to decrypt only the target ciphertext accurately. If you want to decrypt other ciphertexts, do more corrections
 Scoring assumes English text, needing manual corrections. XOR reveals plaintext relationships due to key reuse.
