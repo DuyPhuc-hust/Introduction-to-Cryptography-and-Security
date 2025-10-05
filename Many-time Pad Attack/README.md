@@ -21,6 +21,12 @@
 
 5. **Output**: Displays final key (hex) and plaintexts, highlighting the target.
 
+## Demo
+- **Before Correction**: Initial output with errors (e.g., "secuet messgte").
+  ![Before Correction](images/before_correction.png)
+- **After Correction**: After `10,7,r`, `10,15,a`, `10,25,e`, fixed to "secret message".
+  ![After Correction](images/after_correction.png)
+
 ## Usage
 Run `python many_time_pad.py`
 
