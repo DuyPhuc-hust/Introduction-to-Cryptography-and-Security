@@ -188,9 +188,7 @@ def main():
         initial_key, initial_plaintexts, ciphertexts, target_index
     )
 
-    print("\n" + "="*60)
     print("FINAL RESULTS")
-    print("="*60)
     print(f"\n[+] Final Recovered Key (hex):\n{final_key.hex()}")
     print("\n[+] Final Decrypted Plaintexts:")
     for i, p in enumerate(final_plaintexts):
