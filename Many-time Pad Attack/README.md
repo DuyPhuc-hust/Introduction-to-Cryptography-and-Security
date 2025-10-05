@@ -1,7 +1,5 @@
 # Many-Time Pad Attack
 
-This Python script decrypts ciphertexts encrypted with the same XOR key, targeting one for full decryption via automated key guessing and interactive refinement.
-
 ## Approach
 
 1. **Input**: Takes hex-encoded ciphertexts (`CIPHERTEXTS_HEX`) and a target index (`TARGET_CIPHERTEXT_INDEX`), converted to bytes.
