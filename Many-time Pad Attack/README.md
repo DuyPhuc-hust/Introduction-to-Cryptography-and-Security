@@ -11,7 +11,7 @@
 
 3. **Interactive Refinement**:
    - Show plaintexts with an index.
-   - Accept corrections (`msg_idx,char_pos,new_char`, e.g., `3,15,e`).
+   - Accept corrections (`msg_idx,char_pos,new_char`, e.g., `1,1,p`).
    - Update key and plaintexts until `quit`.
 
 4. **Attack Logic**:
@@ -28,9 +28,9 @@
   ![After Correction](images/after_corrections.png)
 
 ## Usage
-Run `solve.py`
+Run `python solve.py`
 
 ## Notes
-Give the idea about guessing and scoring to Grok to help me solve this problem
+Give the idea about guessing and scoring to Grok to help me solve this problem.
 The recovered key is used to decrypt only the target ciphertext accurately. If you want to decrypt other ciphertexts, do more corrections.
 Scoring assumes English text, needing manual corrections. XOR reveals plaintext relationships due to key reuse.
