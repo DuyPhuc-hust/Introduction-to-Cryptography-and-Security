@@ -90,12 +90,10 @@ def solve_many_time_pad(ciphertexts, target_index):
 def display_state(plaintexts, target_index):
     """Displays the current state of the decrypted plaintexts."""
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("=" * 80)
-    print("INTERACTIVE REFINEMENT MODE")
-    print("=" * 80)
+    print("Fix incorrect characters in the plaintexts below.")
     print("Enter 'msg_idx,char_pos,new_char' to make a correction.")
-    print("Example: '3,15,e' means plaintext 3, position 15, should be 'e'.")
-    print("Enter 'quit' or 'exit' to finish.")
+    print("Example: '1,1,p' means plaintext 1, position 1, should be 'p'.")
+    print("Enter 'quit' to finish.")
     print("-" * 80)
 
     max_len = len(plaintexts[target_index])
@@ -123,7 +121,7 @@ def interactive_refinement_loop(key, plaintexts, ciphertexts, target_index):
         
         try:
             user_input = input("Enter correction (or 'quit'): ").strip().lower()
-            if user_input in ['quit', 'exit']:
+            if user_input in ['quit']:
                 break
             
             parts = user_input.split(',')
