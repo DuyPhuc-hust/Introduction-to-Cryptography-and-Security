@@ -1,8 +1,6 @@
 import os
 import sys
 
-# ==================== CẤU HÌNH CIPHERTEXT ====================
-# Thêm các ciphertext của bạn vào đây (dạng hex string)
 CIPHERTEXTS_HEX = [
     "315c4eeaa8b5f8aaf9174145bf43e1784b8fa00dc71d885a804e5ee9fa40b16349c146fb778cdf2d3aff021dfff5b403b510d0d0455468aeb98622b137dae857553ccd8883a7bc37520e06e515d22c954eba5025b8cc57ee59418ce7dc6bc41556bdb36bbca3e8774301fbcaa3b83b220809560987815f65286764703de0f3d524400a19b159610b11ef3e",
     "234c02ecbbfbafa3ed18510abd11fa724fcda2018a1a8342cf064bbde548b12b07df44ba7191d9606ef4081ffde5ad46a5069d9f7f543bedb9c861bf29c7e205132eda9382b0bc2c5c4b45f919cf3a9f1cb74151f6d551f4480c82b2cb24cc5b028aa76eb7b4ab24171ab3cdadb8356f",
@@ -17,11 +15,8 @@ CIPHERTEXTS_HEX = [
     "32510ba9babebbbefd001547a810e67149caee11d945cd7fc81a05e9f85aac650e9052ba6a8cd8257bf14d13e6f0a803b54fde9e77472dbff89d71b57bddef121336cb85ccb8f3315f4b52e301d16e9f52f904"
 ]
 
-# Chọn target ciphertext (index bắt đầu từ 0)
-TARGET_CIPHERTEXT_INDEX = 10
-# ============================================================
+TARGET_CIPHERTEXT_INDEX = len(CIPHERTEXTS_HEX) - 1 
 
-# --- Configuration ---
 SCORING_TABLE = {
     b' ': 10, b'e': 9, b't': 8, b'a': 7, b'o': 7, b'i': 7, b'n': 7,
     b's': 6, b'h': 6, b'r': 6, b'd': 5, b'l': 5, b'u': 5,
@@ -35,8 +30,7 @@ for i in range(32, 127):
     elif char in b'.,!?;:\'"()[]{}':
         SCORING_TABLE[char] = 1
 
-# --- Core Attack Logic ---
-
+#Attack method
 def score_text(byte_string):
     """Scores a byte string based on character frequency."""
     score = 0
@@ -55,22 +49,18 @@ def solve_many_time_pad(ciphertexts, target_index):
     if not ciphertexts or not (0 <= target_index < len(ciphertexts)):
         raise ValueError("Invalid target index or empty ciphertext list.")
 
-    # Chỉ giải mã đến độ dài của target ciphertext
+    #Only solve for the lenght of the target ciphertext 
     target_ciphertext = ciphertexts[target_index]
     target_len = len(target_ciphertext)
     key = bytearray(target_len)
 
-    # Iterate up to the length of target ciphertext
     for i in range(target_len):
-        # Dynamically create a list of ciphertexts that are long enough for this position
         ciphertexts_at_pos_i = [c for c in ciphertexts if i < len(c)]
         
-        # We need at least 2 ciphertexts to run the attack
         if len(ciphertexts_at_pos_i) < 2:
             print(f"\n[*] Automated guessing stopped at position {i} due to insufficient overlapping ciphertexts.")
-            # Fill the rest of the key with zeros (or a placeholder)
             for j in range(i, target_len):
-                key[j] = 0  # This part will require manual user correction
+                key[j] = 0  
             break
 
         best_guess_for_key_byte = 0
@@ -96,8 +86,6 @@ def solve_many_time_pad(ciphertexts, target_index):
         plaintexts.append(bytearray(c[j] ^ key[j] for j in range(decrypt_len)))
 
     return key, plaintexts
-
-# --- Interactive UI and Refinement ---
 
 def display_state(plaintexts, target_index):
     """Displays the current state of the decrypted plaintexts."""
