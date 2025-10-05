@@ -22,9 +22,9 @@
 5. **Output**: Displays final key (hex) and plaintexts, highlighting the target.
 
 ## Demo
-- **Before Correction**: Initial output with errors (e.g., "secuet messgte").
+- **Before Correction**: Initial output with errors (e.g., "secuet", "messgte", "Whon").
   ![Before Correction](images/before_corrections.png)
-- **After Correction**: After `10,7,r`, `10,15,a`, `10,25,e`, fixed to "secret message".
+- **After Correction**: After `10,7,r`, `10,15,a`, `10,25,e`, fixed to "secret", "message", "When".
   ![After Correction](images/after_corrections.png)
 
 ## Usage
