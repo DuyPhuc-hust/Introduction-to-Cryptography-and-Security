@@ -7,3 +7,7 @@
 Install dependency:
 ```bash
 pip install pycryptodome
+
+Run the program:
+```bash
+python3 aes_cbc_ctr.py
