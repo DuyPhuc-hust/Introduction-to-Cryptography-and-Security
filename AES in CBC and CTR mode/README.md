@@ -56,3 +56,11 @@ pip install pycryptodome
 ```bash
 python3 aes_cbc_ctr.py
 ```
+
+---
+
+## 📘 Result
+1. Basic CBC mode encryption needs padding.
+2. Our implementation uses rand. IV
+3. CTR mode lets you build a stream cipher from a block cipher.
+4. Always avoid the two time pad!
