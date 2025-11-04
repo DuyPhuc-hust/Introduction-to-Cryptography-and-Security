@@ -1,4 +1,4 @@
-# RSA Decryotion with CRT
+# RSA Decryption with CRT
 ## Data
 1. **For large number**:
     - p = 1234567890123456789012345686998765432109876543210987654347
