@@ -29,5 +29,5 @@
     - For small number ~ 1.33× faster
     - CRT optimization is slightly faster than standard RSA.
 ## Members
-    - Nguyễn Duy Phúc 20235616
+    - Nguyễn Duy Phúc   20235616
     - Nguyễn Hùng Quang 20235618
